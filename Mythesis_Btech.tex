@@ -1,0 +1,148 @@
+
+%   \documentclass[defaultstyle]{thesis}
+%   \documentclass[typewriterstyle]{thesis}
+%   \documentclass[modernstyle]{thesis}
+    \documentclass[modernstyle,12pt]{thesis}
+
+   %\documentclass[modernstyle,11pt]{thesis}
+%   \documentclass[defaultstyle,12pt]{thesis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%    load any packages which are needed    %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{latexsym}       % to get LASY symbols
+\usepackage{rotating}       % for sideways tables/figures
+\usepackage{eufrak}
+\usepackage{epsfig}     % to insert PostScript figures
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+\usepackage{hyperref}
+
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset { %
+    language=C,
+    backgroundcolor=\color{black!5}, % set backgroundcolor   
+    commentstyle=\color{codegreen},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+%%%%%%%%%%%%       all the preamble material:       %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\uppercase{Immediate Files System in Minix Operating system}}
+
+\degree{{\emph{\uppercase{Bachelor of Technology}}}}        %  #1 {long descr.}
+    {B.Tech., Computer Science and Engineering}     %  #2 {short descr.}
+
+\dept{Department of}            %  #1 {designation}
+    {ComputerScience  And Engineering}      %  #2 {name}
+
+\advisor{}{\uppercase{Dr Murali Krishnan}}           %  #1 {title}
+
+
+\acknowledgements{  \OnePageChapter % *MUST* BE ONLY ONE PAGE!
+We would like to express our gratitude and appreciation to all those who helped
+us complete this project. First and foremost, we would like to thank our project
+guide Dr Murali Krishnan, for his guidance and encouragement. We would also like
+to thank Sharath Hari N and Sudev A C, passouts of 2014 batch for their help in
+getting us started with the project.\\
+\\
+\emph{PRAGATI MAAN} \\
+\emph{SHRISHTY CHANDRA}
+}
+
+% a 1-page Table of Contents ??
+ \ToCisShort
+
+\abstract{  \OnePageChapter % one page only ??
+
+     In most of the computer systems, accessing disk files acts as the bottleneck
+    in performance. So while designing the we try to minimise the
+    number of disk accesses. Immediate file is one solution to this problem.
+    The idea is to store files of small size in the inode itself, instead of
+    storing the pointers to the disk blocks. Once the size of the file exceeds the memory
+    available for block pointers in the inode, it is converted to a regular
+    file. This also saves the disk block, which would otherwise have been wasted
+    to store a very small size of data ie. internal fragmentation.
+     Minix is an operating system that was basically created for educational
+     purposes. It consists of a microkernel that is considered to be highly reliable. 
+    We aim at implemeting the immediate file system in minix 3.2,
+    which includes an abstract layer called the virtual file system besides the minix file system }
+
+%\LoSisShort
+%\emptyLoS % no List of Symbols at all ??
+
+%\LoFisShort % a 1-page List of Figures ??
+% \emptyLoF % no List of Figures at all ??
+
+%\LoTisShort % a 1-page List of Tables ??
+% \emptyLoT % no List of Tables at all ??
+%\LoAisShort
+%\LoA
+% \emptyLoA % no List of Abbreviations at all ??
+%\emptyLos  % no List of symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%       BEGIN DOCUMENT...         %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%  Weird footnotes??
+%%%%  default=\arabic; \roman, \Roman, \alph, \Alph, \fnsymbol
+%   \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%   \setcounter{footnote}{0}
+
+\begin{document}
+
+\input macros.tex
+\input ch3.tex
+\input ch1.tex
+\input ch2.tex
+\input ch4.tex
+%% all chapters can be input like this....%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%  Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{acm}   % or "siam", or "alpha", or "abbrv"
+\nocite{*}      % list all refs in database, cited or not.
+
+\bibliography{refs}     % bib database in "refs.bib"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  Appendices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\appendix   % don't forget this line if you have appendices!
+%\input appA.tex
+%% all appendices included in this manner%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%   THE END   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
